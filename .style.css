@@ -1,0 +1,134 @@
+/* ====== RESET BÁSICO ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ====== CORPO DA PÁGINA (DARK MODE) ====== */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0f172a;      /* azul-marinho profundo */
+  color: #e2e8f0;                  /* texto claro */
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* ====== CABEÇALHO ====== */
+.cabecalho {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cabecalho h1 {
+  color: #00d4ff;                  /* ciano neon */
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.subtitulo {
+  color: #94a3b8;                  /* cinza-azulado suave */
+  font-size: 1rem;
+}
+
+/* ====== ÁREA DOS CARDS ====== */
+.cards {
+  display: grid;
+  /* Cria colunas automáticas que se ajustam à tela */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+/* ====== CARD INDIVIDUAL (fundo ciano, texto escuro) ====== */
+.card {
+  background-color: #00d4ff;
+  color: #0f172a;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0, 212, 255, 0.25);
+}
+
+.card .titulo {
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+
+.card .valor {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* ====== CONTAINER DA TABELA ====== */
+.tabela-container {
+  overflow-x: auto;                /* permite rolar de lado no celular */
+  border-radius: 12px;
+}
+
+/* ====== TABELA ====== */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;                /* garante que a tabela não "esprema" demais */
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabela thead {
+  background-color: #00d4ff;
+  color: #0f172a;
+}
+
+.tabela th,
+.tabela td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.tabela tbody tr {
+  border-bottom: 1px solid #1e293b;
+}
+
+.tabela tbody tr:hover {
+  background-color: #1e293b;       /* destaque ao passar o mouse */
+}
+
+/* ====== SITUAÇÕES (cores diferentes por texto) ====== */
+.situacao-bom {
+  color: #22c55e;                  /* verde */
+  font-weight: bold;
+}
+
+.situacao-atencao {
+  color: #f59e0b;                  /* laranja */
+  font-weight: bold;
+}
+
+.situacao-sem-nota {
+  color: #94a3b8;                  /* cinza */
+  font-style: italic;
+}
+
+/* ====== AJUSTES PARA CELULAR ====== */
+@media (max-width: 600px) {
+  .cabecalho h1 {
+    font-size: 1.5rem;
+  }
+
+  .card .valor {
+    font-size: 1.3rem;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+}
