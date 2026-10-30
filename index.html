@@ -16,27 +16,57 @@
     <p class="subtitulo">8º Ano — Estudante Exemplo</p>
   </header>
 
-  <!-- CARDS DE RESUMO (preenchidos pelo JavaScript) -->
-  <section class="cards" id="cards"></section>
-
-  <!-- TABELA DE DISCIPLINAS (preenchida pelo JavaScript) -->
-  <section class="tabela-container">
-    <table class="tabela">
-      <thead>
-        <tr>
-          <th>Disciplina</th>
-          <th>1º Tri</th>
-          <th>2º Tri</th>
-          <th>3º Tri</th>
-          <th>Média</th>
-          <th>Faltas</th>
-          <th>Situação</th>
-        </tr>
-      </thead>
-      <!-- O corpo da tabela é preenchido pelo script.js -->
-      <tbody id="corpo-tabela"></tbody>
-    </table>
+  <!-- ÁREA DE ACESSO POR PIN -->
+  <section class="acesso" id="acesso">
+    <p class="acesso-info" id="acesso-info">8º Ano — Turma 8A — Nº 35</p>
+    <div class="acesso-campos">
+      <input
+        type="password"
+        id="campo-pin"
+        class="campo-pin"
+        inputmode="numeric"
+        autocomplete="off"
+        placeholder="Digite seu PIN"
+        aria-label="PIN"
+      />
+      <button type="button" id="botao-entrar" class="botao">Entrar</button>
+    </div>
+    <p class="acesso-status" id="acesso-status"></p>
   </section>
+
+  <!-- ÁREA DO BOLETIM (oculta até o login) -->
+  <main id="area-boletim" class="area-boletim oculto">
+
+    <!-- CARDS DE RESUMO (preenchidos pelo JavaScript) -->
+    <section class="cards" id="cards"></section>
+
+    <!-- TABELA DE DISCIPLINAS (preenchida pelo JavaScript) -->
+    <section class="tabela-container">
+      <table class="tabela">
+        <thead>
+          <tr>
+            <th>Disciplina</th>
+            <th>1º Tri</th>
+            <th>2º Tri</th>
+            <th>3º Tri</th>
+            <th>Média</th>
+            <th>Faltas</th>
+            <th>Situação</th>
+          </tr>
+        </thead>
+        <!-- O corpo da tabela é preenchido pelo script.js -->
+        <tbody id="corpo-tabela"></tbody>
+      </table>
+    </section>
+
+    <!-- AÇÕES DE EDIÇÃO E SALVAMENTO -->
+    <section class="acoes-edicao" id="acoes-edicao">
+      <button type="button" id="botao-alterar" class="botao botao-secundario">Alterar dados</button>
+      <button type="button" id="botao-salvar" class="botao botao-primario oculto">Salvar alterações</button>
+      <p class="edicao-status" id="edicao-status"></p>
+    </section>
+
+  </main>
 
   <!-- Liga o arquivo de JavaScript -->
   <script src="script.js"></script>
