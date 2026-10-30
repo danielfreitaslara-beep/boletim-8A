@@ -34,7 +34,6 @@ body {
 /* ====== ÁREA DOS CARDS ====== */
 .cards {
   display: grid;
-  /* Cria colunas automáticas que se ajustam à tela */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
   margin-bottom: 30px;
@@ -65,7 +64,7 @@ body {
 
 /* ====== CONTAINER DA TABELA ====== */
 .tabela-container {
-  overflow-x: auto;                /* permite rolar de lado no celular */
+  overflow-x: auto;
   border-radius: 12px;
 }
 
@@ -73,7 +72,7 @@ body {
 .tabela {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;                /* garante que a tabela não "esprema" demais */
+  min-width: 640px;
   background-color: #0f172a;
   border: 1px solid #1e293b;
   border-radius: 12px;
@@ -97,22 +96,22 @@ body {
 }
 
 .tabela tbody tr:hover {
-  background-color: #1e293b;       /* destaque ao passar o mouse */
+  background-color: #1e293b;
 }
 
-/* ====== SITUAÇÕES (cores diferentes por texto) ====== */
+/* ====== SITUAÇÕES ====== */
 .situacao-bom {
-  color: #22c55e;                  /* verde */
+  color: #22c55e;
   font-weight: bold;
 }
 
 .situacao-atencao {
-  color: #f59e0b;                  /* laranja */
+  color: #f59e0b;
   font-weight: bold;
 }
 
 .situacao-sem-nota {
-  color: #94a3b8;                  /* cinza */
+  color: #94a3b8;
   font-style: italic;
 }
 
@@ -135,10 +134,8 @@ body {
 
 /* ============================================================
    ACRÉSCIMOS — ACESSO POR PIN, EDIÇÃO E STATUS
-   (mantendo o visual dark + ciano neon do projeto)
    ============================================================ */
 
-/* Esconde elementos de forma acessível */
 .oculto {
   display: none !important;
 }
@@ -280,8 +277,119 @@ body {
   box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.25);
 }
 
-/* Campo com valor inválido — destaque em vermelho */
 .campo-edicao.invalido {
   border-color: #f87171;
   box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.25);
+}
+
+/* ============================================================
+   ACRÉSCIMOS — ÁREA DOS GRÁFICOS
+   Mantém a identidade visual: dark + ciano neon.
+   ============================================================ */
+
+.area-graficos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+/* Card individual de cada gráfico */
+.grafico-card {
+  background-color: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0, 212, 255, 0.10);
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* evita estouro de largura no grid */
+}
+
+.grafico-titulo {
+  color: #00d4ff;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  margin-bottom: 12px;
+}
+
+/* Cabeçalho do card de faltas (título + badge) */
+.grafico-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.grafico-cabecalho .grafico-titulo {
+  margin-bottom: 0;
+}
+
+/* Contêiner do canvas — altura fixa para responsividade do Chart.js */
+.grafico-container {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  min-width: 0;
+}
+
+/* O gráfico de média por disciplina precisa de mais altura (≈15 disciplinas) */
+.grafico-container-medios {
+  height: 420px;
+}
+
+.grafico-container canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* ====== BADGE DE PERIGO (só quando crítico) ====== */
+.badge-perigo {
+  display: inline-block;
+  background-color: #f87171;
+  color: #0f172a;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.25);
+}
+
+/* Card de faltas em estado crítico */
+.grafico-card.critico {
+  border-color: #f87171;
+  box-shadow: 0 4px 18px rgba(248, 113, 113, 0.35);
+}
+
+/* ====== RESPONSIVIDADE DOS GRÁFICOS ====== */
+/* Tablet: 2 colunas, o terceiro cai para a linha de baixo */
+@media (max-width: 1024px) {
+  .area-graficos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Celular: 1 coluna, empilhado */
+@media (max-width: 700px) {
+  .area-graficos {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .grafico-container {
+    height: 230px;
+  }
+
+  .grafico-container-medios {
+    height: 460px; /* nomes das disciplinas não podem ficar ilegíveis */
+  }
+
+  .grafico-titulo {
+    font-size: 0.95rem;
+  }
 }

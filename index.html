@@ -2,10 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <!-- Garante que o site funcione bem no celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boletim Digital</title>
-  <!-- Liga o arquivo de estilo -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -40,6 +38,35 @@
     <!-- CARDS DE RESUMO (preenchidos pelo JavaScript) -->
     <section class="cards" id="cards"></section>
 
+    <!-- ÁREA DOS GRÁFICOS (preenchida pelo Chart.js) -->
+    <section class="area-graficos" id="area-graficos">
+
+      <article class="grafico-card">
+        <h2 class="grafico-titulo">Média por disciplina</h2>
+        <div class="grafico-container grafico-container-medios">
+          <canvas id="graficoMediasDisciplinas" aria-label="Gráfico de média por disciplina"></canvas>
+        </div>
+      </article>
+
+      <article class="grafico-card">
+        <h2 class="grafico-titulo">Evolução da média geral</h2>
+        <div class="grafico-container">
+          <canvas id="graficoEvolucaoTrimestres" aria-label="Gráfico de evolução da média geral por trimestre"></canvas>
+        </div>
+      </article>
+
+      <article class="grafico-card" id="cardFaltas">
+        <div class="grafico-cabecalho">
+          <h2 class="grafico-titulo">Faltas por trimestre</h2>
+          <span class="badge-perigo oculto" id="estadoFaltas">Perigo</span>
+        </div>
+        <div class="grafico-container">
+          <canvas id="graficoFaltasTrimestres" aria-label="Gráfico de faltas por trimestre"></canvas>
+        </div>
+      </article>
+
+    </section>
+
     <!-- TABELA DE DISCIPLINAS (preenchida pelo JavaScript) -->
     <section class="tabela-container">
       <table class="tabela">
@@ -54,7 +81,6 @@
             <th>Situação</th>
           </tr>
         </thead>
-        <!-- O corpo da tabela é preenchido pelo script.js -->
         <tbody id="corpo-tabela"></tbody>
       </table>
     </section>
@@ -68,6 +94,8 @@
 
   </main>
 
+  <!-- Chart.js (deve vir ANTES do script.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Liga o arquivo de JavaScript -->
   <script src="script.js"></script>
 </body>
